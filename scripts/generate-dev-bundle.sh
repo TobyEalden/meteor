@@ -59,8 +59,8 @@ if [ "$ARCH" == "aarch64" ] ; then
   # Download official MongoDB Ubuntu aarch64 binaries
   MONGO_URL="https://fastdl.mongodb.org/linux/mongodb-linux-arm64-ubuntu1604-${MONGO_VERSION}.tgz"
   MONGO_NAME="mongodb-linux-aarch64-ubuntu1604-${MONGO_VERSION}"
-  echo "Downloading Mongo from ${MONGO_URL}"
-  curl -L "${MONGO_URL}" | tar zx
+  echo "**NOT** Downloading Mongo from ${MONGO_URL}"
+  # curl -L "${MONGO_URL}" | tar zx
 else
   MONGO_VERSION=$MONGO_VERSION_64BIT
   if [ $UNAME = "Linux" ]; then
@@ -79,10 +79,10 @@ else
 fi
 
 # Put Mongo binaries in the right spot (mongodb/bin)
-mkdir -p "mongodb/bin"
-mv "${MONGO_NAME}/bin/mongod" "mongodb/bin"
-mv "${MONGO_NAME}/bin/mongo" "mongodb/bin"
-rm -rf "${MONGO_NAME}"
+#mkdir -p "mongodb/bin"
+#mv "${MONGO_NAME}/bin/mongod" "mongodb/bin"
+#mv "${MONGO_NAME}/bin/mongo" "mongodb/bin"
+#rm -rf "${MONGO_NAME}"
 
 # export path so we use the downloaded node and npm
 export PATH="$DIR/bin:$PATH"
